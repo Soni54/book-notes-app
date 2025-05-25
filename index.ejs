@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Book Notes</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+
+        <header>
+        <h1>My Book Notes</h1>
+        <a  class="btn primary" href="/add">+Add Book</a>
+        </header>
+
+        <div id="sort">
+        <a href="/?sort=rating">Sort by Rating</a> |
+        <a href="/?sort=title">Sort by Title</a> |
+        <a href="/?sort=date_read">Sort by Date</a>
+        </div>
+        <ul>
+            <% books.forEach(book => {%>
+            <li>
+                <img src="<%= book.cover_url %>" width="100" />
+                <div class="book-details">
+                <h2><%= book.title %></h2>
+                <p><strong>Author:</strong> <%= book.author %></p>
+            <p><strong>Rating:</strong> <%= book.rating %>/10</p>
+            <p><strong>Date Read:</strong> <%= book.date_read.toISOString().split('T')[0] %></p>
+            <p><%= book.notes %></p>
+            <div class="actions">
+            <a class="btn small" href="/edit/<%= book.id %>">Edit</a>
+            <form method="POST" action="/delete/<%= book.id %>" onsubmit="return confirm('Delete this book?');">
+                <button class="btn danger small" type="submit">Delete</button>
+            </form>
+            </div>
+                </div>
+            </li>
+        <%}) %>
+        </ul>
+    </body>
+</html>

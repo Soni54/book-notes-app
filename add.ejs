@@ -1,0 +1,27 @@
+
+<head>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    
+
+<form  class="book-form" action="/add" method="POST">
+ <h2>Add a New Book</h2>  
+    <label>Title</label>
+    <input name="title" placeholder="Title" required>
+
+    <label>Author</label>
+     <input name="author" placeholder="Author" required>
+
+     <label>Date Read</label>
+      <input name="date_read" placeholder="date" required>
+
+      <label>Rating</label>
+       <input name="rating" placeholder="number" min="1" max="10" required>
+
+       <label>Notes</label>
+       <textarea name="notes" placeholder="Your notes"></textarea>
+       <input name="cover_url" placeholder="Cover image URL">
+       <button>Add Book</button>
+</form>
+<a href="/">Back</a>
